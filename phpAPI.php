@@ -8,6 +8,7 @@ $username = $_POST["username"];
 $auth_token = $_POST["auth_token"];
 
 // getting auth_token - to check user auth
+// modify SQL script to suit your DB structure
 $sql = "SELECT auth_token, user_type from users WHERE username = '$username'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_assoc($result);
