@@ -21,7 +21,7 @@ if($auth_token === $validAuthToken) {
     // write any PHP block here
 
     // use this to call a Python script
-    $command = escapeshellcmd("path/to/python/interpreter cmd_line_args");
+    $command = escapeshellcmd("path/to/python/interpreter path/to/file/name cmd_line_args");
     $output = shell_exec($command);
     echo $output;
 }
