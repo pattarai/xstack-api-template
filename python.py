@@ -11,7 +11,7 @@ from local_config import config
 
 
 def mysql_connection():
-    global username, day, hour, date, response_list
+    global username, response_list
 
     try:
         cnx = mysql.connector.connect(**config)
@@ -25,6 +25,9 @@ def mysql_connection():
         cursor.close()
 
         cnx.close()
+        
+        # print your output, this will be echoed in the PHP wrapper
+        print(response_list)
 
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -38,6 +41,8 @@ def mysql_connection():
 # add more cmd line argsa here
 username = sys.argv[1]
 hour = int(sys.argv[2])
+
+response_list = []
 
 # call method
 mysql_connection()
